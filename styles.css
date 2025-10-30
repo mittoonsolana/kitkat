@@ -265,25 +265,12 @@ img {
 /* Hero Title */
 .hero-title {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 2rem;
-    color: #05d6ea;
+    color: var(--text);
     text-transform: uppercase;
-    letter-spacing: 4px;
-    font-family: 'Comic Sans MS', 'Marker Felt', 'Chalkduster', cursive;
-    text-shadow: 
-        2px 2px 0px #05d6ea,
-        4px 4px 0px #05d6ea,
-        6px 6px 8px rgba(0, 0, 0, 0.6);
-    background: linear-gradient(45deg, #05d6ea, #7eeef5, #05d6ea, #7eeef5);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: crayon-glow 2s ease-in-out infinite alternate, crayon-bg 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 15px rgba(5, 214, 234, 0.4));
-    transform: rotate(-1deg);
-    position: relative;
+    letter-spacing: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Live Data Container */
