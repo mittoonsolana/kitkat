@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$Kitkat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="marquee-container">
+        <marquee behavior="scroll" direction="left" scrollamount="5" class="donation-marquee">All fees will be donated to KitKat's owner</marquee>
+    </div>
+    
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="logo-container">
+                <img src="kitcatlogo.png" alt="Kitkat Logo" class="logo-img">
+            </div>
+            <div class="gif-container">
+                <img src="gif for first.gif" alt="Kitkat Hero Image" class="hero-gif">
+            </div>
+            <h1 class="hero-title">$KITKATUSD</h1>
+            <div class="button-container">
+                <a href="https://pump.fun/coin/4WHgPFPWPaadmggykkUTBbLq6HYb6GJ4QJR9de18pump" target="_blank" class="pump-fun-btn">🚀 Pump Fun</a>
+                <a href="https://dexscreener.com/solana/4WHgPFPWPaadmggykkUTBbLq6HYb6GJ4QJR9de18pump" target="_blank" class="dex-screener-btn">📊 Dex Screener</a>
+            </div>
+            <div class="contract-address-card">
+                <div class="contract-header">
+                    <h3 class="contract-title">Contract Address</h3>
+                    <div class="contract-badge">Solana</div>
+                </div>
+                <div class="contract-content">
+                    <div class="contract-address-box">
+                        <span class="contract-text" id="contractAddress">4WHgPFPWPaadmggykkUTBbLq6HYb6GJ4QJR9de18pump</span>
+                        <div class="contract-actions">
+                            <button class="copy-button" onclick="copyContract()">
+                                <svg class="copy-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                </svg>
+                                Copy
+                            </button>
+                            <div class="platform-logos">
+                                <div class="logo-item">
+                                    <svg class="solana-logo" width="24" height="24" viewBox="0 0 397.7 311.7">
+                                        <defs>
+                                            <linearGradient id="solanaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#9945ff"/>
+                                                <stop offset="100%" style="stop-color:#14f195"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <path fill="url(#solanaGradient)" d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z"/>
+                                        <path fill="url(#solanaGradient)" d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1L333.1,73.8c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z"/>
+                                        <path fill="url(#solanaGradient)" d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z"/>
+                                    </svg>
+                                </div>
+                                <div class="logo-item">
+                                     <img class="pumpfun-logo" src="https://pump.fun/_next/image?url=%2Flogo.png&w=96&q=75" alt="Pump Fun" width="28" height="28">
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Spacer -->
+    <div class="bottom-spacer"></div>
+
+
+
+    <script>
+        // Content Protection
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('keydown', function(e) {
+            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
+            if (e.keyCode === 123 || 
+                (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+                (e.ctrlKey && e.keyCode === 85) ||
+                (e.ctrlKey && e.keyCode === 83)) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Copy contract address function
+        function copyContract() {
+            const contractAddress = document.getElementById('contractAddress').textContent;
+            navigator.clipboard.writeText(contractAddress).then(function() {
+                const feedback = document.getElementById('copyFeedback');
+                feedback.classList.add('show');
+                
+                setTimeout(function() {
+                    feedback.classList.remove('show');
+                }, 2000);
+            });
+        }
+
+
+
+        // No live data fetching needed since we removed the live data section
+    </script>
+    
+    <section class="news-section">
+        <div class="container">
+            <h2 class="section-title">KitKat's Story</h2>
+            <div class="news-card">
+                <img src="kitkatnews.jpg" alt="KitKat news" class="news-image">
+         
+                <h3>KitKat, beloved S.F. bodega cat, killed, allegedly by Waymo</h3>
+                <p class="news-excerpt">
+                    KitKat, nine years old, was found dying in the street on Monday night or early Tuesday morning. 
+                    Numerous friends and neighbors said the cat was hit and killed by a Waymo autonomous vehicle.
+                </p>
+                <p class="news-excerpt">
+                    "It's sad. Everyone's heartbroken. I've been crying all day and night," said Jessica Chapdelaine, 
+                    a bartender at Delirium who lives in an apartment above. "He's the baby. He was everyone's best friend 
+                    and he was just the sweetest boy."
+                </p>
+                <a href="https://missionlocal.org/2025/10/kitkat-mission-liquor-store-mascot-and-16th-st-ambassador-killed-on-monday/" 
+                   target="_blank" class="read-more-btn">Read Full Article</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

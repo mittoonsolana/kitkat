@@ -1,0 +1,972 @@
+/* Reset and Base Styles */
+/* Design Tokens */
+:root {
+    --theme: #05d6ea;
+    --theme-light: #7eeef5;
+    --bg: #e6fbfc;
+    --text: #333333;
+}
+.donation-text {
+    color: #05d6ea;
+    font-weight: bold;
+    margin: 8px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.marquee-container {
+    background-color: var(--theme);
+    padding: 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.donation-marquee {
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* (Reverted: header and hero grid styles removed) */
+
+/* News Section Styles */
+.news-section {
+    padding: 20px 20px;
+    background-color: rgba(5, 214, 234, 0.1);
+    margin-top: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    color: #05d6ea;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.news-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(5, 214, 234, 0.2);
+}
+
+.news-image {
+    width: 70%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .news-image {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.news-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.news-excerpt {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.read-more-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #05d6ea, #7eeef5);
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(5, 214, 234, 0.4);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    min-height: 100vh;
+    /* Content Protection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Animated Code Background */
+body::before {
+    content: "function transferTokens(address to, uint256 amount) {\n    require(balanceOf[msg.sender] >= amount);\n    balanceOf[msg.sender] -= amount;\n    balanceOf[to] += amount;\n    emit Transfer(msg.sender, to, amount);\n}\n\ncontract SolanaToken {\n    mapping(address => uint256) public balanceOf;\n    uint256 public totalSupply = 1000000;\n    \n    function mint(uint256 amount) public {\n        totalSupply += amount;\n        balanceOf[msg.sender] += amount;\n    }\n}\n\nfunction swapTokens() {\n    // DEX integration\n    uint256 price = getTokenPrice();\n    executeSwap(price);\n}";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.02);
+    white-space: pre-wrap;
+    overflow: hidden;
+    z-index: 0;
+    animation: codeScroll 25s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes codeScroll {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* Bottom Spacer */
+.bottom-spacer {
+    height: 10vh;
+    min-height: 100px;
+}
+
+/* Global Image Protection */
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 2rem 1rem 5rem 1rem;
+    box-sizing: border-box;
+}
+
+/* Logo Container */
+.logo-container {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Logo Image */
+.logo-img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* GIF Container */
+.gif-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 3rem auto;
+    z-index: 10;
+}
+
+/* Hero GIF */
+.hero-gif {
+    width: 50vw;
+    max-width: 500px;
+    min-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    margin: 0 auto;
+    object-fit: contain;
+    /* Image Protection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+}
+
+/* Hero Overlay */
+.hero-overlay {
+    text-align: center;
+    color: white;
+}
+
+/* Hero Title */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: #05d6ea;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: 'Comic Sans MS', 'Marker Felt', 'Chalkduster', cursive;
+    text-shadow: 
+        2px 2px 0px #05d6ea,
+        4px 4px 0px #05d6ea,
+        6px 6px 8px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(45deg, #05d6ea, #7eeef5, #05d6ea, #7eeef5);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: crayon-glow 2s ease-in-out infinite alternate, crayon-bg 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(5, 214, 234, 0.4));
+    transform: rotate(-1deg);
+    position: relative;
+}
+
+/* Live Data Container */
+.live-data-container {
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    min-width: 400px;
+    /* Re-enable interactions for this section */
+    pointer-events: auto;
+}
+
+.live-data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.data-item {
+    text-align: center;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.data-label {
+    font-size: 0.9rem;
+    color: #cccccc;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.data-value {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+}
+
+.data-value.positive {
+    color: #00ff88;
+}
+
+.data-value.negative {
+    color: #ff4444;
+}
+
+.data-loading {
+    text-align: center;
+    color: #cccccc;
+    font-size: 1rem;
+    padding: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.data-error {
+    text-align: center;
+    color: #ff4444;
+    font-size: 1rem;
+    padding: 2rem;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes crayon-glow {
+    0% {
+        text-shadow: 
+            2px 2px 0px #ff69b4,
+            4px 4px 0px #ff1493,
+            6px 6px 8px rgba(0, 0, 0, 0.6);
+        transform: rotate(-1deg) scale(1);
+    }
+    100% {
+        text-shadow: 
+            3px 3px 0px #ff69b4,
+            5px 5px 0px #ff1493,
+            8px 8px 12px rgba(0, 0, 0, 0.7);
+        transform: rotate(-0.5deg) scale(1.02);
+    }
+}
+
+@keyframes crayon-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Chart Section */
+.chart-section {
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    min-width: 400px;
+    max-width: 800px;
+    width: 100%;
+    /* Re-enable interactions for this section */
+    pointer-events: auto;
+}
+
+.chart-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* DexScreener Embed */
+#dexscreener-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 125%;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+@media(min-width: 1400px) {
+    #dexscreener-embed {
+        padding-bottom: 65%;
+    }
+}
+
+#dexscreener-embed iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 0;
+    border-radius: 15px;
+}
+
+/* Contract Address Card */
+.contract-address-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    width: 100%;
+}
+
+.contract-address-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.contract-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.contract-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contract-badge {
+    background: linear-gradient(45deg, #9945ff, #14f195);
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(153, 69, 255, 0.3);
+}
+
+.contract-content {
+    position: relative;
+}
+
+.contract-address-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contract-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.platform-logos {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.solana-logo {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.solana-logo:hover {
+    transform: scale(1.1);
+}
+
+.pumpfun-logo {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+    border-radius: 4px;
+}
+
+.pumpfun-logo:hover {
+    transform: translateY(-2px) scale(1.1);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.contract-address-box:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contract-text {
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #ffffff;
+    flex: 1;
+    word-break: break-all;
+    line-height: 1.4;
+    margin-right: 1rem;
+}
+
+.copy-button {
+    background: linear-gradient(45deg, #05d6ea, #7eeef5);
+    color: #000000;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 15px rgba(5, 214, 234, 0.3);
+}
+
+.copy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(5, 214, 234, 0.4);
+    background: linear-gradient(45deg, #7eeef5, #05d6ea);
+}
+
+.copy-button:active {
+    transform: translateY(0);
+}
+
+.copy-icon {
+    transition: transform 0.2s ease;
+}
+
+.copy-button:hover .copy-icon {
+    transform: scale(1.1);
+}
+
+.copy-feedback {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(34, 197, 94, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+.copy-feedback.show {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    /* Re-enable interactions for buttons */
+    pointer-events: auto;
+}
+
+/* Pump Fun Button */
+.pump-fun-btn {
+    background: linear-gradient(45deg, #05d6ea, #7eeef5, #05d6ea);
+    background-size: 200% 200%;
+    color: #000000;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 30px rgba(5, 214, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: buttonPulse 2s ease infinite;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.pump-fun-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+    animation: none;
+    text-decoration: none;
+    color: #000000;
+}
+
+.pump-fun-btn:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Dex Screener Button */
+.dex-screener-btn {
+    background: linear-gradient(45deg, #038e9b, #05d6ea, #7eeef5);
+    background-size: 200% 200%;
+    color: #000000;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 30px rgba(5, 214, 234, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: buttonPulse2 2s ease infinite;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.dex-screener-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+    animation: none;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.dex-screener-btn:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Animations */
+
+@keyframes textGlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+    }
+}
+
+@keyframes buttonPulse2 {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+    }
+}
+
+
+
+/* Additional random effects */
+@media (min-width: 768px) {
+    .phrase {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .phrase {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-gif {
+        width: 60vw;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .live-data-container {
+        min-width: 300px;
+        padding: 1.2rem;
+    }
+    
+    .live-data-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .contract-address {
+        min-width: 300px;
+        padding: 1.2rem;
+    }
+    
+    .contract-text {
+        font-size: 0.8rem;
+    }
+    
+    .button-container {
+        gap: 1rem;
+    }
+    
+    .pump-fun-btn,
+    .dex-screener-btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-gif {
+        width: 80vw;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .live-data-container {
+        min-width: 280px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .live-data-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    
+    .data-item {
+        padding: 0.6rem;
+    }
+    
+    .data-label {
+        font-size: 0.8rem;
+    }
+    
+    .data-value {
+        font-size: 1rem;
+    }
+    
+    .contract-address {
+        min-width: 280px;
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contract-text {
+        font-size: 0.7rem;
+    }
+    
+    .button-container {
+        gap: 0.8rem;
+        flex-direction: column;
+    }
+    
+    .pump-fun-btn,
+    .dex-screener-btn {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .hero-section {
+        padding: 20px 10px;
+        min-height: 60vh;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .hero-gif {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 10px;
+        align-items: center;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 280px;
+        padding: 15px 20px;
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .contract-address-card {
+        margin: 20px 10px;
+        padding: 20px 15px;
+        max-width: none;
+        width: calc(100% - 20px);
+    }
+
+    .contract-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .contract-title {
+        font-size: 1.3rem;
+    }
+
+    .solana-badge {
+        align-self: center;
+    }
+
+    .contract-address-box {
+        gap: 15px;
+    }
+
+    .contract-actions {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .platform-logos {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .contract-text {
+        font-size: 0.8rem;
+        word-break: break-all;
+        text-align: center;
+        padding: 15px 10px;
+    }
+
+    .copy-button {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .copy-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+
+    .hero-gif {
+        width: 95%;
+        max-width: 250px;
+    }
+
+    .contract-address-card {
+        margin: 15px 5px;
+        padding: 15px 10px;
+        border-radius: 15px;
+    }
+
+    .contract-title {
+        font-size: 1.1rem;
+    }
+
+    .contract-text {
+        font-size: 0.75rem;
+        padding: 12px 8px;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 12px 18px;
+    }
+
+    .solana-badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .contract-text {
+        font-size: 0.7rem;
+    }
+
+    .cta-button {
+        font-size: 0.8rem;
+        padding: 10px 15px;
+    }
+}
